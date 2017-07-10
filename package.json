@@ -1,0 +1,16 @@
+{
+  "name": "euler",
+  "version": "1.0.0",
+  "description": "Project Euler solutions",
+  "main": "main.js",
+  "dependencies": {
+    "lazy.js": "^0.5.0",
+    "underscore": "^1.8.3"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "afryk",
+  "license": "WTFPL"
+}
