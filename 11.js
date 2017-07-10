@@ -53,7 +53,7 @@ let getDiagonalsUpRight = grid => {
     return transposeGrid(expanded).map(d => _.compact(d));
 };
 let getDiagonalsUpLeft = grid => {
-    let expanded = grid.map((row, index) => undefines(row.length, index, -1).concat(row));
+    let expanded = grid.map((row, index) => undefines(row.length - index -1).concat(row));
     return transposeGrid(expanded).map(d => _.compact(d));
 };
 let getDiagonals = grid => getDiagonalsUpRight(grid).concat(getDiagonalsUpLeft(grid));

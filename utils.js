@@ -29,10 +29,34 @@ let lowestPrimeDivisor = n => {
 
 let isPalindrome = x => x.toString().split("").reverse().join("") === x.toString();
 
+let sum = array => array.reduce((sum, n) => sum + n);
+
+let prod = array => _.reduce(array, (p, n) => p * n);
+
+let getCols = grid => _.range(0, grid.length * 2 - 1)
+        .map(i => grid.map(row => row[i]))
+        .filter(row => !row.every(x => x === undefined));
+
+let undefines = len => _.range(len).map(() => undefined);
+
+let getDiagonalsUpRight = grid => {
+    let expanded = grid.map((row, index) => undefines(index).concat(row));
+    return getCols(expanded).map(d => _.compact(d));
+};
+let getDiagonalsUpLeft = grid => {
+    let expanded = grid.map((row, index) => undefines(row.length - index - 1).concat(row));
+    return getCols(expanded).map(d => _.compact(d));
+};
+let getDiagonals = grid => getDiagonalsUpRight(grid).concat(getDiagonalsUpLeft(grid));
+
 module.exports = {
     fibonacci,
     isPrime,
     primeFactors,
     lowestPrimeDivisor,
-    isPalindrome
+    isPalindrome,
+    sum,
+    prod,
+    getCols,
+    getDiagonals
 }
