@@ -2,11 +2,10 @@ const lazy = require("lazy.js");
 const _ = require("underscore");
 const utils = require("./utils");
 
-let primes = lazy.generate(i => i + 1).filter(utils.isPrimeOptimal);
-let getNthPrime = n => primes.get(n);
+let triangleNumbers = lazy.generate(i => utils.sum(_.range(1, i + 2)));
 
-let validAnswer = 104743;
-let result = getNthPrime(10000);
+let validAnswer = 76576500;
+let result = triangleNumbers.dropWhile(n => utils.findNumberOfDivisors(n) <= 500).first();
 
 console.log(`Result: ${result}, test ${result === validAnswer
     ? "passed"
